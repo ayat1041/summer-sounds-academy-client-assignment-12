@@ -1,0 +1,7 @@
+.header_box_left{
+    /* clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%); */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+.header_box_right{
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+}

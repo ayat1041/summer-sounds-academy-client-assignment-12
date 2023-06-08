@@ -19,7 +19,7 @@ const NavBar = () => {
         <img src="logo.png" className="h-10 lg:h-14 mx-auto lg:mx-0" alt="" />
         <button className="btn bg-green-500 text-white border-none hidden lg:block hover:bg-slate-600">Take a Tour</button>
       </div>
-      <div className="navbar bg-green-400 sticky top-0 w-full h-10">
+      <div className="navbar bg-green-400 sticky top-0 w-full h-10 shadow-md z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
