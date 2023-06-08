@@ -1,0 +1,6 @@
+.login_style{
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+}
+.login_style_mobile{
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
+}
