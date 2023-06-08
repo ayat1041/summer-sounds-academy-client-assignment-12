@@ -45,7 +45,7 @@ const NavBar = () => {
                 {listItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Dashboard</a>
+          <button className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl">Dashboard</button>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 w-72 h-14 flex justify-between">{listItems}</ul>
