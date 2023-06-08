@@ -16,7 +16,7 @@ const Slider = () => {
         <div className="keen-slider__slide number-slide1 relative">
           <img src={slide1} className="w-full" alt="" />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-1/2 lg:w-1/3 text-center bg-green-300 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
+            <div className="w-1/2 lg:w-1/3 text-center bg-green-200 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
               <p className="text-sm lg:text-4xl text-slate-700 font-semibold lg:font-bold drop-shadow-md uppercase">
                 Glow your childrens creative side
               </p>
@@ -32,7 +32,7 @@ const Slider = () => {
         <div className="keen-slider__slide number-slide2 relative">
           <img src={slide2} className="w-full" alt="" />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-1/2 lg:w-1/3 text-center bg-green-300 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
+            <div className="w-1/2 lg:w-1/3 text-center bg-green-200 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
               <p className="text-sm lg:text-4xl text-slate-700 font-semibold lg:font-bold drop-shadow-md uppercase">
                 instruments can boost their confidence
               </p>
@@ -45,7 +45,7 @@ const Slider = () => {
         <div className="keen-slider__slide number-slide3 relative">
           <img src={slide3} className="w-full" alt="" />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-1/2 lg:w-1/3 text-center bg-green-300 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
+            <div className="w-1/2 lg:w-1/3 text-center bg-green-200 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
               <p className="text-sm lg:text-4xl text-slate-700 font-semibold lg:font-bold drop-shadow-md uppercase">
                 We provide efficient classes
               </p>
@@ -58,7 +58,7 @@ const Slider = () => {
         <div className="keen-slider__slide number-slide4 relative">
           <img src={slide4} className="w-full" alt="" />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-1/2 lg:w-1/3 text-center bg-green-300 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
+            <div className="w-1/2 lg:w-1/3 text-center bg-green-200 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
               <p className="text-sm lg:text-4xl text-slate-700 font-semibold lg:font-bold drop-shadow-md uppercase">
                 Learn with enjoyment
               </p>
@@ -71,7 +71,7 @@ const Slider = () => {
         <div className="keen-slider__slide number-slide5">
           <img src={slide5} className="w-full" alt="" />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <div className="w-1/2 lg:w-1/3 text-center bg-green-300 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
+            <div className="w-1/2 lg:w-1/3 text-center bg-green-200 p-2 lg:p-6 rounded-full rounded-ss-none shadow-lg">
               <p className="text-sm lg:text-4xl text-slate-700 font-semibold lg:font-bold drop-shadow-md uppercase">
                 In here classes are like playgrounds
               </p>
