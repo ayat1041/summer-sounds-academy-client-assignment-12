@@ -5,3 +5,6 @@
 .header_box_right{
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
 }
+.header_box_center{
+    clip-path: polygon(0 0, 100% 0%, 85% 99%, 15% 100%);
+}
