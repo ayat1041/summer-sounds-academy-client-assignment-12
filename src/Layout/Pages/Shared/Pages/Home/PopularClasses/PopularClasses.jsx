@@ -13,17 +13,18 @@ const PopularClasses = () => {
           enrolled.
         </p>
       </div>
-      <div className="lg:mx-10 mx-4 grid gap-4 grid-cols-1 lg:grid-cols-3">
-        {
-          isLoading ? (<p>Loading</p>)
-          :
-          (
-            classes.map(classItem => {
-            return <ClassCard key={classItem._id} classItem={classItem}></ClassCard>;
-          })
-          )
-        }
-      </div>
+
+      {isLoading ? (
+        <div className="w-full text-center">
+          <span className="loading loading-bars w-1/5 mx-auto text-green-700"></span>
+        </div>
+      ) : (
+        <div className="lg:mx-10 mx-4 grid gap-4 grid-cols-1 lg:grid-cols-3">
+          {classes.map((classItem) => (
+            <ClassCard key={classItem._id} classItem={classItem}></ClassCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
