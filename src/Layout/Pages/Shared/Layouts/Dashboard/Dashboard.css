@@ -1,3 +1,6 @@
 .bar_shape{
     clip-path: polygon(0 0, 81% 0, 100% 100%, 0% 100%);
 }
+.bar_parent_shape{
+    clip-path: polygon(0 0, 100% 0, 81% 100%, 0% 100%);
+}

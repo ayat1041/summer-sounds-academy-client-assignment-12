@@ -69,7 +69,7 @@ const NavBar = () => {
           </div>
           {user && (
             <Link
-              to="dashboard"
+              to="dashboard/mySelectedClasses"
               className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl"
             >
               Dashboard

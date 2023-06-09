@@ -8,6 +8,9 @@ import Classes from "../Layout/Pages/Shared/Pages/Classes/Classes";
 import Login from "../Layout/Pages/Shared/Pages/Login/Login";
 import SignUp from "../Layout/Pages/Shared/Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Pages/Shared/Layouts/Dashboard/Dashboard";
+import MySelectedClasses from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/MySelectedClasses";
+import MyEnrolledClasses from "../Layout/Pages/Shared/Pages/Student/MyEnrolledClasses/MyEnrolledClasses";
+import PaymentHistory from "../Layout/Pages/Shared/Pages/Student/PaymentHistory/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -43,7 +46,18 @@ const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     errorElement: <div>Nothing in here</div>,
     children: [
-        
+        {
+            path: "mySelectedClasses",
+            element: <MySelectedClasses></MySelectedClasses>
+        },
+        {
+            path: "myEnrolledClasses",
+            element: <MyEnrolledClasses></MyEnrolledClasses>
+        },
+        {
+            path: "paymentHistory",
+            element: <PaymentHistory></PaymentHistory>
+        }
     ]
   }
 ]);

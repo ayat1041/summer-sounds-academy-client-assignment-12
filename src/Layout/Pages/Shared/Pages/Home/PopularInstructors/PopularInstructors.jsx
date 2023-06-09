@@ -1,6 +1,7 @@
 import useUsers from "../../../../../../Hooks/useUsers";
 import InstructorCard from "../../../Shared/InstructorCard/InstructorCard";
 import SectionHeader from "../../../Shared/NavBar/SectionHeader/SectionHeader";
+import InstructorDetailedCard from "../../../Shared/instructorDetailedCard/instructorDetailedCard";
 
 const PopularInstructors = () => {
   const [users, isUserLoading] = useUsers(6, "instructor");
@@ -22,10 +23,11 @@ const PopularInstructors = () => {
           ) : (
             <div className="lg:mx-10 mx-4 grid gap-4 grid-cols-1 lg:grid-cols-3">
               {users.map((userSolo) => (
-                <InstructorCard
+                <InstructorDetailedCard
                   key={userSolo._id}
                   userSolo={userSolo}
-                ></InstructorCard>
+                  noEmail={true}
+                ></InstructorDetailedCard>
               ))}
             </div>
           )}
