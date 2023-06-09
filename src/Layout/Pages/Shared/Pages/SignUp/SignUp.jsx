@@ -21,7 +21,8 @@ const Login = () => {
   const passwordConfirm = watch("password");
 
   const onSubmit = (data) => {
-    console.log(data);
+    const {name, email, password} = data;
+    console.log(name,email,password);
   };
   return (
     <div className="hero min-h-screen bg-base-200">

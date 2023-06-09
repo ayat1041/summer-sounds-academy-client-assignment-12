@@ -14,7 +14,8 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const {email,password} = data;
+    console.log(email,password);
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -56,23 +57,13 @@ const Login = () => {
               <input
                 type={passShown ? 'text' : 'password'}
                 {...register("password", {
-                  required: true,
-                  pattern: /^(?=.*[A-Z])(?=.*[-@#$%^&+=])(?=.*[a-z]).{6,}$/,
+                  required: true
                 })}
                 placeholder="Enter your password"
                 className="input input-bordered flex-1 rounded-ee-none rounded-se-none"
               />
               <div onClick={()=>setPassShown(!passShown)} className="btn border-1 border-slate-300 rounded-es-none rounded-ss-none px-2">{!passShown? <BsFillEyeFill className="text-2xl text-success drop-shadow-sm"/> : <BsFillEyeSlashFill className="text-2xl text-red-600 drop-shadow-sm"/>}</div>
               </div>
-              {errors.password?.type === "pattern" && (
-                <div className="flex items-center gap-2 my-2 text-xs text-red-700">
-                  <MdError className="text-4xl animate-pulse" />
-                  <p>
-                    Password must contain minimum - 6 characters, 1 uppercase, 1
-                    number & 1 special character
-                  </p>
-                </div>
-              )}
               {errors.password?.type === "required" && (
                 <div className="flex items-center gap-2 my-2 text-xs text-red-700">
                   <MdError className="text-4xl animate-pulse" />
