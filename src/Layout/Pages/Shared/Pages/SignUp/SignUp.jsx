@@ -7,10 +7,14 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../../../Providers/AuthProvider";
+import axios from "axios";
 
-const Login = () => {
+
+const SignUp = () => {
   const [passShown, setPassShown] = useState(false);
+  const { signUp,updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -21,8 +25,23 @@ const Login = () => {
   const passwordConfirm = watch("password");
 
   const onSubmit = (data) => {
-    const {name, email, password} = data;
-    console.log(name,email,password);
+    const {name, email, password,photo} = data;
+    signUp(email,password)
+    .then(res=>{
+      updateUserProfile(name,photo)
+      .then(()=>{
+        console.log("user updated",res.user)
+        axios.post("http://localhost:5000/users",{
+          image : photo,
+          name: name,
+          email: email,
+          role: "student"
+        })
+        .then((response)=>console.log(response))
+      })
+      .catch(error=>console.log(error))
+    })
+    .catch(error=>console.log(error))
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -160,6 +179,25 @@ const Login = () => {
                   <p>Password is required</p>
                 </div>
               )}
+               <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium tracking-wider">
+                  Photo URL
+                </span>
+              </label>
+              <input
+                type="text"
+                {...register("photo", { required: true })}
+                placeholder="Provide your image URL"
+                className="input input-bordered"
+              />
+              {errors.photo && (
+                <div className="flex items-center gap-2 my-2 text-xs text-red-700">
+                  <MdError className="text-4xl animate-pulse" />
+                  <p>Photo URL is required</p>
+                </div>
+              )}
+            </div>
               <p className="text-sm mt-4">
                 Already have an account ?
                 <Link to="/Login" className="text-sm mx-2 font-medium">
@@ -179,4 +217,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
