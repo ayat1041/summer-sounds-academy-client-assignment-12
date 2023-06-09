@@ -4,10 +4,12 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../../../Providers/AuthProvider";
 
 const Login = () => {
   const [passShown,setPassShown] = useState(false);
+  const { signIn } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -15,6 +17,11 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     const {email,password} = data;
+
+    signIn(email,password)
+    .then(res=>console.log(res.user))
+    .catch(error=>console.log(error))
+
     console.log(email,password);
   };
   return (

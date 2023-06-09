@@ -1,15 +1,29 @@
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../../Providers/AuthProvider";
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const userLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const listItems = (
     <>
       <li className="font-semibold hover:text-base text-slate-950 transition-all duration-100 ease-in">
-        <Link to="/" className="tracking-wider drop-shadow-sm">Home</Link>
+        <Link to="/" className="tracking-wider drop-shadow-sm">
+          Home
+        </Link>
       </li>
       <li className="font-semibold hover:text-base text-slate-950 transition-all duration-100 ease-in">
-        <Link to="/instructors" className="tracking-wider drop-shadow-sm">Instructors</Link>
+        <Link to="/instructors" className="tracking-wider drop-shadow-sm">
+          Instructors
+        </Link>
       </li>
       <li className="font-semibold hover:text-base text-slate-950 transition-all duration-100 ease-in">
-        <Link to="/classes" className="tracking-wider drop-shadow-sm">Classes</Link>
+        <Link to="/classes" className="tracking-wider drop-shadow-sm">
+          Classes
+        </Link>
       </li>
     </>
   );
@@ -17,7 +31,12 @@ const NavBar = () => {
     <div className="">
       <div className="bg-green-200 py-1 pt-2 flex justify-between lg:px-8">
         <img src="logo.png" className="h-10 lg:h-14 mx-auto lg:mx-0" alt="" />
-        <button className="btn bg-green-500 text-white border-none hidden lg:block hover:bg-slate-600">Take a Tour</button>
+        <div className="flex items-center">
+          {user && <h1 className="btn btn-small mx-2">{user?.displayName}</h1>}
+          <button className="btn bg-green-500 text-white border-none hidden lg:block hover:bg-slate-600">
+            Take a Tour
+          </button>
+        </div>
       </div>
       <div className="navbar bg-green-400 sticky top-0 w-full h-10 shadow-md z-10">
         <div className="navbar-start">
@@ -42,16 +61,30 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-green-200 rounded-sm w-52"
             >
-                {listItems}
+              {listItems}
             </ul>
           </div>
-          <button className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl">Dashboard</button>
+          {user && (
+            <button className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl">
+              Dashboard
+            </button>
+          )}
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 w-72 h-14 flex justify-between">{listItems}</ul>
+          <ul className="menu menu-horizontal px-1 w-72 h-14 flex justify-between">
+            {listItems}
+          </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn rounded-md">Login</Link>
+          {user ? (
+            <button onClick={userLogOut} className="btn rounded-md">
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="btn rounded-md">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

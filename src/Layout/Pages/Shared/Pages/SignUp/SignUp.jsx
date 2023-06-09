@@ -207,7 +207,7 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn border-0 bg-green-500 hover:bg-green-900 text-lg font-bold tracking-wider transition-all duration-200 ease-in">
-                Login
+                Sign Up
               </button>
             </div>
           </form>
