@@ -7,6 +7,7 @@ import Instructors from "../Layout/Pages/Shared/Pages/Instructors/Instructors";
 import Classes from "../Layout/Pages/Shared/Pages/Classes/Classes";
 import Login from "../Layout/Pages/Shared/Pages/Login/Login";
 import SignUp from "../Layout/Pages/Shared/Pages/SignUp/SignUp";
+import Dashboard from "../Layout/Pages/Shared/Layouts/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
         }
     ]
   },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    errorElement: <div>Nothing in here</div>,
+    children: [
+        
+    ]
+  }
 ]);
 
 export default router;

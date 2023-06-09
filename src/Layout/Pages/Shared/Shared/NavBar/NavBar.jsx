@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const userLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => console.log(error));
   };
   const listItems = (
@@ -65,9 +68,12 @@ const NavBar = () => {
             </ul>
           </div>
           {user && (
-            <button className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl">
+            <Link
+              to="dashboard"
+              className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl"
+            >
               Dashboard
-            </button>
+            </Link>
           )}
         </div>
         <div className="navbar-center hidden lg:flex">

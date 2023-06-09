@@ -3,13 +3,14 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 
 const Login = () => {
   const [passShown,setPassShown] = useState(false);
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,7 +20,10 @@ const Login = () => {
     const {email,password} = data;
 
     signIn(email,password)
-    .then(res=>console.log(res.user))
+    .then(res=>{
+      console.log(res.user)
+      navigate("/")
+    })
     .catch(error=>console.log(error))
 
     console.log(email,password);
