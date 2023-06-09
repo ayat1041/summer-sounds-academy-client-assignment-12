@@ -28,7 +28,7 @@ const Slider = () => {
               </p>
             </div>
             <Link to="#footer">
-              <button className={`btn btn-xs lg:btn-lg mt-4  hover:bg-slate-900 text-white border-none tracking-widest ${darkModeState ? "bg-green-500 text-slate-700" : "bg-green-950 text-slate-200"}`}>
+              <button className={`btn btn-xs lg:btn-lg mt-4  hover:bg-slate-900 text-white border-none tracking-widest ${darkModeState ? "bg-green-600 text-slate-700" : "bg-green-950 text-slate-200"}`}>
                 Contact US
               </button>
             </Link>
