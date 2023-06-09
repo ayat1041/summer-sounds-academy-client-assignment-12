@@ -38,7 +38,7 @@ const Login = () => {
               <input
                 type="email"
                 {...register("email", { required: true })}
-                placeholder="email"
+                placeholder="Enter your email"
                 className="input input-bordered"
               />
               {errors.email && (
@@ -59,7 +59,7 @@ const Login = () => {
                   required: true,
                   pattern: /^(?=.*[A-Z])(?=.*[-@#$%^&+=])(?=.*[a-z]).{6,}$/,
                 })}
-                placeholder="password"
+                placeholder="Enter your password"
                 className="input input-bordered flex-1 rounded-ee-none rounded-se-none"
               />
               <div onClick={()=>setPassShown(!passShown)} className="btn border-1 border-slate-300 rounded-es-none rounded-ss-none px-2">{!passShown? <BsFillEyeFill className="text-2xl text-success drop-shadow-sm"/> : <BsFillEyeSlashFill className="text-2xl text-red-600 drop-shadow-sm"/>}</div>
