@@ -1,5 +1,7 @@
 import { SiGoogleclassroom } from 'react-icons/si'
 import './InstructorCard.css';
+import { useContext } from 'react';
+
 const InstructorCard = ({userSolo}) => {
     const {name,email,image,no_of_classes} = userSolo;
   return (

@@ -1,7 +1,7 @@
 import useUsers from "../../../../../../Hooks/useUsers";
 import InstructorCard from "../../../Shared/InstructorCard/InstructorCard";
 import SectionHeader from "../../../Shared/NavBar/SectionHeader/SectionHeader";
-import InstructorDetailedCard from "../../../Shared/instructorDetailedCard/instructorDetailedCard";
+import InstructorDetailedCard from "../../../Shared/InstructorDetailedCard/instructorDetailedCard";
 
 const PopularInstructors = () => {
   const [users, isUserLoading] = useUsers(6, "instructor");

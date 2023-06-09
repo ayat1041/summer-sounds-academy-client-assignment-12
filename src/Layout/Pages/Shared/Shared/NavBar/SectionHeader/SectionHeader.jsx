@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import "./SectionHeader.css";
+import { DarkModeContext } from "../../../../../../Providers/DarkModeProvider";
 const SectionHeader = ({ heading, left, center }) => {
+  const { darkModeState, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div className="w-full bg-green-400 shadow-md">
       {center ? (

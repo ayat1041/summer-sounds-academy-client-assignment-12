@@ -1,11 +1,37 @@
+import { useContext } from "react";
+import { GiDandelionFlower } from "react-icons/gi";
+import { DarkModeContext } from "../../../../../Providers/DarkModeProvider";
+
 const Footer = () => {
+  const { darkModeState, toggleDarkMode } = useContext(DarkModeContext);
   return (
-    <footer className="footer p-10 bg-green-950 text-neutral-content">
+    <footer className={`footer p-10 text-neutral-content  ${
+      darkModeState ? "bg-green-500" : "bg-green-950"
+    }`} id="footer">
       <div>
-        <div className="bg-green-950">
-        <img className="h-14 lg:h-20 drop-shadow-lg" src="logo.png" alt="" />
+        <div className="">
+        <div
+          className="h-10 lg:h-14 mx-auto lg:mx-0 drop-shadow-md flex items-center pb-2"
+          alt=""
+        >
+          <GiDandelionFlower className="text-yellow-400 text-5xl" />
+          <div className="divider-vertical mx-2 w-[1px] bg-slate-400 h-full"></div>
+          <div>
+          <h1
+            className={`text-lg lg:text-4xl text-blue-200 tracking-tight font-medium -mb-1 ${
+              darkModeState ? "text-green-900" : "text-green-200"
+            }`}
+            style={{ fontFamily: "'PT Sans Narrow', sans-serif" }}
+          >
+            Summer Sounds Academy
+          </h1>
+          <h1 className={`m-0 lg:mt-1 text-xs lg:text-sm tracking-tighter lg:tracking-tight ${
+              darkModeState ? "text-green-900" : "text-yellow-600"
+            }`}>learn to play instruments | Enjoy a creative vacation</h1>
+          </div>
         </div>
-        <p className="lg:pl-4 text-green-200 opacity-20 mx-auto lg:mx-0">
+        </div>
+        <p className="lg:pl-4 text-green-200 opacity-20 mx-auto lg:mx-0 mt-6">
         &copy; Reserved Summer Sound Academy 2023.
         </p>
       </div>
