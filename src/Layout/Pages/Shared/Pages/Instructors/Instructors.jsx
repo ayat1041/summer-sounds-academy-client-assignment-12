@@ -2,13 +2,14 @@ import useUsers from "../../../../../Hooks/useUsers";
 import InstructorCard from "../../Shared/InstructorCard/InstructorCard";
 import SectionHeader from "../../Shared/NavBar/SectionHeader/SectionHeader";
 import InstructorDetailedCard from "../../Shared/InstructorDetailedCard/instructorDetailedCard";
+import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
 
 
 const Instructors = () => {
     const [users, isUserLoading] = useUsers(0, "instructor");
     console.log(users);
     return (
-      <div className="pb-10 lg:pb-24 bg-green-100">
+        <SectionContainer>
         <SectionHeader heading={"All Instructors"}></SectionHeader>
         <div className="py-10">
           {/* <div className="bg-slate-100 py-6 shadow-md mb-6">
@@ -32,7 +33,7 @@ const Instructors = () => {
               </div>
             )}
         </div>
-      </div>
+        </SectionContainer>
     );
 };
 

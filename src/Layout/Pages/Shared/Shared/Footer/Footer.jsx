@@ -3,7 +3,7 @@ import { GiDandelionFlower } from "react-icons/gi";
 import { DarkModeContext } from "../../../../../Providers/DarkModeProvider";
 
 const Footer = () => {
-  const { darkModeState, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkModeState } = useContext(DarkModeContext);
   return (
     <footer className={`footer p-10 text-neutral-content  ${
       darkModeState ? "bg-green-500" : "bg-green-950"
@@ -31,12 +31,16 @@ const Footer = () => {
           </div>
         </div>
         </div>
-        <p className="lg:pl-4 text-green-200 opacity-20 mx-auto lg:mx-0 mt-6">
+        <p className={`lg:pl-4 text-green-200 opacity-80 mx-auto lg:mx-0 mt-6 ${
+      darkModeState ? "text-green-900" : "text-green-100"
+    }`}>
         &copy; Reserved Summer Sound Academy 2023.
         </p>
       </div>
       <div>
-        <span className="footer-title">find us on</span>
+        <span className={`footer-title ${
+      darkModeState ? "text-green-950" : "text-green-200"
+    }`}>find us on</span>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg

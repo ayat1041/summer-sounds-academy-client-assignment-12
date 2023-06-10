@@ -17,7 +17,7 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
 
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(darkModeState);
   const darkModeStateValue = !darkMode;
   useEffect(() => {
     toggleDarkMode();
@@ -26,7 +26,7 @@ const NavBar = () => {
     <>
       <li
         className={`font-semibold hover:text-base transition-all duration-100 ease-in ${
-          darkMode ? "text-slate-900" : "text-green-200"
+          darkModeState ? "text-slate-900" : "text-green-200"
         }`}
       >
         <Link to="/" className="tracking-wider drop-shadow-sm">
@@ -35,7 +35,7 @@ const NavBar = () => {
       </li>
       <li
         className={`font-semibold hover:text-base transition-all duration-100 ease-in ${
-          darkMode ? "text-slate-900" : "text-green-200"
+          darkModeState ? "text-slate-900" : "text-green-200"
         }`}
       >
         <Link to="/instructors" className="tracking-wider drop-shadow-sm">
@@ -44,7 +44,7 @@ const NavBar = () => {
       </li>
       <li
         className={`font-semibold hover:text-base transition-all duration-100 ease-in ${
-          darkMode ? "text-slate-900" : "text-green-200"
+          darkModeState ? "text-slate-900" : "text-green-200"
         }`}
       >
         <Link to="/classes" className="tracking-wider drop-shadow-sm">
@@ -64,10 +64,10 @@ const NavBar = () => {
       >
         {/* <img src="logo.png" className="h-10 lg:h-14 mx-auto lg:mx-0 shadow-md" alt="" /> */}
         <div
-          className="h-10 lg:h-14 mx-auto lg:mx-0 drop-shadow-md flex items-center pb-2"
+          className="h-10 lg:h-14 mx-2 lg:mx-0 drop-shadow-md flex items-center pb-2"
           alt=""
         >
-          <GiDandelionFlower className="text-yellow-400 text-5xl" />
+          <GiDandelionFlower className="text-yellow-400 text-3xl lg:text-5xl" />
           <div className="divider-vertical mx-2 w-[1px] bg-slate-400 h-full"></div>
           <div>
           <h1
@@ -78,7 +78,7 @@ const NavBar = () => {
           >
             Summer Sounds Academy
           </h1>
-          <h1 className={`m-0 lg:mt-1 text-xs lg:text-sm tracking-tighter lg:tracking-tight ${
+          <h1 className={`m-0 lg:mt-1 text-[6px] lg:text-sm tracking-tighter lg:tracking-tight ${
               darkMode ? "text-green-900" : "text-yellow-600"
             }`}>learn to play instruments | Enjoy a creative vacation</h1>
           </div>
@@ -151,7 +151,9 @@ const NavBar = () => {
           {user && (
             <Link
               to="dashboard/mySelectedClasses"
-              className="btn border-none bg-green-500 text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl"
+              className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
+                darkMode ? "bg-green-500" : "bg-green-800"
+              }`}
             >
               Dashboard
             </Link>

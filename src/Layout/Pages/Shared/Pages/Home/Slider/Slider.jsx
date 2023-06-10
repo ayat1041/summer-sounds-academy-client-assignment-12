@@ -10,10 +10,10 @@ import { DarkModeContext } from "../../../../../../Providers/DarkModeProvider";
 import { Link } from "react-router-dom";
 const Slider = () => {
   const [sliderRef] = useKeenSlider();
-  const { darkModeState, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkModeState } = useContext(DarkModeContext);
   return (
     // <div className="lg:bg-gradient-to-b from-green-200 to-transparent my-0 py-0 mb-24">
-    <div className={`lg:bg-gradient-to-b from-green-200 to-transparent my-0 py-0 pb-24 relative  ${darkModeState ? "lg:bg-gradient-to-b from-green-200 to-transparent" : "lg:bg-gradient-to-b from-slate-900 to-slate-950"}`}>
+    <div className={`my-0 py-0 pb-24 relative  ${darkModeState ? "lg:bg-gradient-to-b from-green-200 to-transparent" : "lg:bg-gradient-to-b from-slate-900 to-slate-800"}`}>
       <div
         ref={sliderRef}
         className="keen-slider max-w-screen-xl mx-auto relative"

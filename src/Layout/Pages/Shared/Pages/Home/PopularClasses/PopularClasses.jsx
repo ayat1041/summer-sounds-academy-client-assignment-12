@@ -1,18 +1,16 @@
 import useClasses from "../../../../../../Hooks/useClasses";
 import ClassCard from "../../../Shared/ClassCard/ClassCard";
 import SectionHeader from "../../../Shared/NavBar/SectionHeader/SectionHeader";
+import SectionHeaderDetail from "../../../Shared/NavBar/SectionHeaderDetail/SectionHeaderDetail";
+import SectionContainer from "../../../Shared/SectionContainer/SectionContainer";
 
 const PopularClasses = () => {
   const [classes, isLoading] = useClasses(6);
   return (
-    <div className="pb-10 lg:pb-24 bg-green-100" id="popular-classes">
+    <SectionContainer>
       <SectionHeader heading={"popular classes"} left={true}></SectionHeader>
-      <div className="bg-slate-100 py-6 shadow-md mb-6">
-        <p className="lg:text-2xl text-green-700 drop-shadow-sm font-bold px-6 lg:w-1/3 text-center mx-auto mb-10">
-          Here are the most popular classes with maximum number of our students
-          enrolled.
-        </p>
-      </div>
+      <SectionHeaderDetail detail={`Here are the most popular classes with maximum number of our students
+          enrolled.`}></SectionHeaderDetail>
 
       {isLoading ? (
         <div className="w-full text-center">
@@ -25,7 +23,7 @@ const PopularClasses = () => {
           ))}
         </div>
       )}
-    </div>
+    </SectionContainer>
   );
 };
 
