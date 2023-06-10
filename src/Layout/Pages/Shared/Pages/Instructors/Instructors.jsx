@@ -1,5 +1,4 @@
 import useUsers from "../../../../../Hooks/useUsers";
-import InstructorCard from "../../Shared/InstructorCard/InstructorCard";
 import SectionHeader from "../../Shared/NavBar/SectionHeader/SectionHeader";
 import InstructorDetailedCard from "../../Shared/InstructorDetailedCard/instructorDetailedCard";
 import SectionContainer from "../../Shared/SectionContainer/SectionContainer";
