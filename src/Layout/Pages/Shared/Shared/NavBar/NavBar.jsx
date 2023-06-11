@@ -69,18 +69,22 @@ const NavBar = () => {
         >
           <GiDandelionFlower className="text-yellow-400 text-3xl lg:text-5xl" />
           <div className="divider-vertical mx-2 w-[1px] bg-slate-400 h-full"></div>
-          <div>
-          <h1
-            className={`text-lg lg:text-4xl text-blue-200 tracking-tight font-medium -mb-1 ${
-              darkMode ? "text-green-900" : "text-green-200"
-            }`}
-            style={{ fontFamily: "'PT Sans Narrow', sans-serif" }}
-          >
-            Summer Sounds Academy
-          </h1>
-          <h1 className={`m-0 lg:mt-1 text-[6px] lg:text-sm tracking-tighter lg:tracking-tight ${
-              darkMode ? "text-green-900" : "text-yellow-600"
-            }`}>learn to play instruments | Enjoy a creative vacation</h1>
+          <div className="mt-2 lg:mt-0">
+            <h1
+              className={`text-lg lg:text-4xl text-blue-200 tracking-tight leading-none font-medium -mb-1 ${
+                darkMode ? "text-green-900" : "text-green-200"
+              }`}
+              style={{ fontFamily: "'PT Sans Narrow', sans-serif" }}
+            >
+              Summer Sounds Academy
+            </h1>
+            <h1
+              className={`m-0 mt-2 lg:mt-1 text-[7px] lg:text-sm tracking-tighter lg:tracking-tight ${
+                darkMode ? "text-green-900" : "text-yellow-600"
+              }`}
+            >
+              learn to play instruments | Enjoy a creative vacation
+            </h1>
           </div>
         </div>
         <div className="flex items-center gap-4">
@@ -166,9 +170,16 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <button onClick={userLogOut} className="btn rounded-md">
-              Logout
-            </button>
+            <>
+              <div className="avatar online mx-4">
+                <div className="w-12 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </div>
+              <button onClick={userLogOut} className="btn rounded-md">
+                Logout
+              </button>
+            </>
           ) : (
             <Link to="/login" className="btn rounded-md">
               Login

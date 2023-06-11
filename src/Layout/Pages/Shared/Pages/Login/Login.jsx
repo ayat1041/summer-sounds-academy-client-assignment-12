@@ -1,6 +1,6 @@
 import "./Login.css";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
-import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill,BsGoogle } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,6 +28,9 @@ const Login = () => {
 
     console.log(email,password);
   };
+  const handleGoogleSignIn = () => {
+    
+  }
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row w-full">
@@ -92,6 +95,8 @@ const Login = () => {
               <button className="btn border-0 bg-green-500 hover:bg-green-900 text-lg font-bold tracking-wider transition-all duration-200 ease-in">Login</button>
             </div>
           </form>
+          <div className="divider-horizontal h-[2px] opacity-30 bg-green-950 w-[80%] mx-auto"></div>
+          <div onClick={handleGoogleSignIn} className="p-4 pb-10 w-full text-center"><BsGoogle className="mx-auto text-4xl text-green-600 cursor-pointer"/></div>
         </div>
       </div>
     </div>

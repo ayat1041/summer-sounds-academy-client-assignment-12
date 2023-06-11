@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { SiGoogleclassroom } from "react-icons/si";
 import { DarkModeContext } from "../../../../../Providers/DarkModeProvider";
+import "./InstructorCard.css"
+import { Link } from "react-router-dom";
 const InstructorDetailedCard = ({ userSolo,noEmail}) => {
   const {darkModeState} = useContext(DarkModeContext);
-  const { name, email, image, no_of_classes } = userSolo;
+  const { _id,name, email, image, no_of_classes } = userSolo;
   return (
     <div className={`card card-side transition-all duration-200 ease-in shadow-xl cursor-default ${darkModeState? "bg-base-100" : "bg-base-400"}`}>
       <figure className={`w-max p-0 pr-10 avatar_background ${darkModeState? "bg-green-200" : "bg-green-900"}`}>
@@ -23,9 +25,9 @@ const InstructorDetailedCard = ({ userSolo,noEmail}) => {
           </span>
         </div>
         <div className="card-actions justify-end">
-          <button className={`btn btn-sm hover:bg-green-900 border-none font-bold text-white tracking-wide mr-6 cursor-pointer ${darkModeState? "bg-green-500" : "bg-green-700"}`}>
+          <Link to={`/instructor/${_id}`} className={`btn btn-sm hover:bg-green-900 border-none font-bold text-white tracking-wide mr-6 cursor-pointer ${darkModeState? "bg-green-500" : "bg-green-700"}`}>
             View
-          </button>
+          </Link>
         </div>
       </div>
     </div>

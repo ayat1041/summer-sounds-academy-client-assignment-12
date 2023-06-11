@@ -11,6 +11,8 @@ import Dashboard from "../Layout/Pages/Shared/Layouts/Dashboard/Dashboard";
 import MySelectedClasses from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/MySelectedClasses";
 import MyEnrolledClasses from "../Layout/Pages/Shared/Pages/Student/MyEnrolledClasses/MyEnrolledClasses";
 import PaymentHistory from "../Layout/Pages/Shared/Pages/Student/PaymentHistory/PaymentHistory";
+import Instructor from "../Layout/Pages/Shared/Pages/Instructor/Instructor";
+import ManageClasses from "../Layout/Pages/Shared/Pages/admin/ManageClasses/ManageClasses";
 
 
 const router = createBrowserRouter([
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
             element: <Instructors></Instructors>
         },
         {
+            path: "/instructor/:id",
+            element: <Instructor></Instructor>
+        },
+        {
             path: "/classes",
             element: <Classes></Classes>
         },
@@ -38,6 +44,11 @@ const router = createBrowserRouter([
         {
             path: "/signup",
             element: <SignUp></SignUp>
+        },
+        // admin route
+        {
+            path: "/manageClasses",
+            element: <ManageClasses></ManageClasses>
         }
     ]
   },

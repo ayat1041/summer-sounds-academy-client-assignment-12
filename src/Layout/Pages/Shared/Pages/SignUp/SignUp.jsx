@@ -3,45 +3,53 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
 } from "react-icons/io";
-import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 import axios from "axios";
 
-
 const SignUp = () => {
   const [passShown, setPassShown] = useState(false);
-  const { signUp,updateUserProfile } = useContext(AuthContext);
+  const { signUp, updateUserProfile,googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-
   const passwordConfirm = watch("password");
-
-  const onSubmit = (data) => {
-    const {name, email, password,photo} = data;
-    signUp(email,password)
-    .then(res=>{
-      updateUserProfile(name,photo)
-      .then(()=>{
-        console.log("user updated",res.user)
-        axios.post("http://localhost:5000/users",{
-          image : photo,
-          name: name,
-          email: email,
-          role: "student"
-        })
-        .then((response)=>console.log(response))
-      })
-      .catch(error=>console.log(error))
+  
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+    .then(()=>{
+      navigate("/");
     })
     .catch(error=>console.log(error))
+  };
+
+  const onSubmit = (data) => {
+    const { name, email, password, photo } = data;
+    signUp(email, password)
+      .then((res) => {
+        updateUserProfile(name, photo)
+          .then(() => {
+            console.log("user updated", res.user);
+            // axios
+            //   .post("http://localhost:5000/users", {
+            //     image: photo,
+            //     name: name,
+            //     email: email,
+            //     role: "student",
+            //   })
+            //   .then((response) => console.log(response));
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -179,25 +187,25 @@ const SignUp = () => {
                   <p>Password is required</p>
                 </div>
               )}
-               <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium tracking-wider">
-                  Photo URL
-                </span>
-              </label>
-              <input
-                type="text"
-                {...register("photo", { required: true })}
-                placeholder="Provide your image URL"
-                className="input input-bordered"
-              />
-              {errors.photo && (
-                <div className="flex items-center gap-2 my-2 text-xs text-red-700">
-                  <MdError className="text-4xl animate-pulse" />
-                  <p>Photo URL is required</p>
-                </div>
-              )}
-            </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-medium tracking-wider">
+                    Photo URL
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  {...register("photo", { required: true })}
+                  placeholder="Provide your image URL"
+                  className="input input-bordered"
+                />
+                {errors.photo && (
+                  <div className="flex items-center gap-2 my-2 text-xs text-red-700">
+                    <MdError className="text-4xl animate-pulse" />
+                    <p>Photo URL is required</p>
+                  </div>
+                )}
+              </div>
               <p className="text-sm mt-4">
                 Already have an account ?
                 <Link to="/Login" className="text-sm mx-2 font-medium">
@@ -211,6 +219,13 @@ const SignUp = () => {
               </button>
             </div>
           </form>
+          <div className="divider-horizontal h-[2px] opacity-30 bg-green-950 w-[80%] mx-auto"></div>
+          <div
+            onClick={handleGoogleSignIn}
+            className="p-4 pb-10 w-full text-center"
+          >
+            <BsGoogle className="mx-auto text-4xl text-green-600 cursor-pointer" />
+          </div>
         </div>
       </div>
     </div>
