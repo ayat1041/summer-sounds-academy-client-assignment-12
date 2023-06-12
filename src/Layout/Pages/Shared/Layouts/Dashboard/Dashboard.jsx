@@ -5,6 +5,8 @@ import "./Dashboard.css";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 import useUserEmail from "../../../../../Hooks/useUserEmail";
+import NavBar from "../../Shared/NavBar/NavBar";
+import Footer from "../../Shared/Footer/Footer";
 
 const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -19,16 +21,19 @@ const Dashboard = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="drawer lg:drawer-open">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
-        <Outlet></Outlet>
-        <label
+    <>
+    <NavBar></NavBar>
+    <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-success drawer-button lg:hidden"
         >
           Open drawer
         </label>
+    <div className="drawer lg:drawer-open">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col items-center justify-center h-max py-24">
+        <Outlet></Outlet>
+        
       </div>
       <div className="drawer-side">
         <ul className="hidden lg:block menu bar_parent_shape absolute bg-[#c1ff15] w-full h-full"></ul>
@@ -144,6 +149,8 @@ const Dashboard = () => {
         </ul>
       </div>
     </div>
+    <Footer></Footer>
+    </>
   );
 };
 

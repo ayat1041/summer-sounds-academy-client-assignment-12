@@ -38,14 +38,14 @@ const SignUp = () => {
         updateUserProfile(name, photo)
           .then(() => {
             console.log("user updated", res.user);
-            // axios
-            //   .post("http://localhost:5000/users", {
-            //     image: photo,
-            //     name: name,
-            //     email: email,
-            //     role: "student",
-            //   })
-            //   .then((response) => console.log(response));
+            axios
+              .post("http://localhost:5000/users", {
+                image: photo,
+                name: name,
+                email: email,
+                role: "student",
+              })
+              .then((response) => console.log(response));
           })
           .catch((error) => console.log(error));
       })

@@ -3,6 +3,7 @@ import app from "../firebase/firebase.config";
 import {
     GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  deleteUser,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -37,6 +38,8 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     });
   };
+
+
 
   const logOut = () =>{
     return signOut(auth);

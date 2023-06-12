@@ -1,6 +1,4 @@
-import {
-    createBrowserRouter
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Pages/Shared/Layouts/Main";
 import Home from "../Layout/Pages/Shared/Pages/Home/Home";
 import Instructors from "../Layout/Pages/Shared/Pages/Instructors/Instructors";
@@ -13,7 +11,7 @@ import MyEnrolledClasses from "../Layout/Pages/Shared/Pages/Student/MyEnrolledCl
 import PaymentHistory from "../Layout/Pages/Shared/Pages/Student/PaymentHistory/PaymentHistory";
 import Instructor from "../Layout/Pages/Shared/Pages/Instructor/Instructor";
 import ManageClasses from "../Layout/Pages/Shared/Pages/admin/ManageClasses/ManageClasses";
-
+import ManageUsers from "../Layout/Pages/Shared/Pages/admin/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -21,56 +19,60 @@ const router = createBrowserRouter([
     element: <Main></Main>,
     errorElement: <div>Nothing in here</div>,
     children: [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-            path: "/instructors",
-            element: <Instructors></Instructors>
-        },
-        {
-            path: "/instructor/:id",
-            element: <Instructor></Instructor>
-        },
-        {
-            path: "/classes",
-            element: <Classes></Classes>
-        },
-        {
-            path: "/login",
-            element: <Login></Login>
-        },
-        {
-            path: "/signup",
-            element: <SignUp></SignUp>
-        },
-        // admin route
-        {
-            path: "/manageClasses",
-            element: <ManageClasses></ManageClasses>
-        }
-    ]
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/instructors",
+        element: <Instructors></Instructors>,
+      },
+      {
+        path: "/instructor/:id",
+        element: <Instructor></Instructor>,
+      },
+      {
+        path: "/classes",
+        element: <Classes></Classes>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+    ],
   },
   {
     path: "dashboard",
     element: <Dashboard></Dashboard>,
     errorElement: <div>Nothing in here</div>,
     children: [
-        {
-            path: "mySelectedClasses",
-            element: <MySelectedClasses></MySelectedClasses>
-        },
-        {
-            path: "myEnrolledClasses",
-            element: <MyEnrolledClasses></MyEnrolledClasses>
-        },
-        {
-            path: "paymentHistory",
-            element: <PaymentHistory></PaymentHistory>
-        }
-    ]
-  }
+      {
+        path: "mySelectedClasses",
+        element: <MySelectedClasses></MySelectedClasses>,
+      },
+      {
+        path: "myEnrolledClasses",
+        element: <MyEnrolledClasses></MyEnrolledClasses>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      // admin route
+      {
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUsers></ManageUsers>
+      }
+    ],
+  },
 ]);
 
 export default router;
