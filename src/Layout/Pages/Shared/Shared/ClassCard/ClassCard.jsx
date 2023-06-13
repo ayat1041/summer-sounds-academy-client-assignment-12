@@ -1,4 +1,4 @@
-import { FaUsers } from 'react-icons/fa'
+import { FaDollarSign, FaUsers } from 'react-icons/fa'
 import { GiTeacher } from 'react-icons/gi'
 import { DarkModeContext } from '../../../../../Providers/DarkModeProvider';
 import { useContext } from 'react';
@@ -19,13 +19,19 @@ const ClassCard = ({ classItem }) => {
             <div className='flex items-center'>
             <FaUsers className='text-2xl'/><span><h2 className='text-2xl px-2 font-bold'>{enrolled_students}</h2></span>
             </div>
+            <div className='flex items-center px-4 border-x-2'>
+            <FaDollarSign className='text-md'/><span><h2 className='text-2xl px-0 font-medium text-green-500 drop-shadow-md'>{price}</h2></span>
+            </div>
             <div className='flex items-center'>
             <span><h2 className='text-lg px-2 font-bold'>{instructor_name}</h2></span><GiTeacher className={`text-2xl ${darkModeState ? "text-green-400" : "text-slate-400"}`}/>
             </div>
         </div>
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-between items-center mt-2">
+          <button>
+            <h1 className='font-medium text-green-200 text-md tracking-wide'>Seats available <span className='text-2xl text-green-500 font-bold'>{available_seats}</span></h1> 
+          </button>
           <button className={`btn border-none btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${darkModeState ? "bg-green-500" : "bg-green-800"}`}>
-            View Details
+            Enroll
           </button>
         </div>
       </div>
