@@ -1,8 +1,9 @@
 import useClasses from "../../../../../../Hooks/useClasses";
-import ManageClassesTd from "./ManageClassesTd/ManageClassesTd";
+import ManageClassesTd from "../../admin/ManageClasses/ManageClassesTd/ManageClassesTd";
+import MyClassesTd from "./MyClassesTd";
 
-const ManageClasses = () => {
-  const [classes, isLoading] = useClasses(0);
+const MyClasses = () => {
+        const [classes, isLoading] = useClasses(0);
   return (
     <div className="overflow-x-auto px-14">
       
@@ -12,23 +13,20 @@ const ManageClasses = () => {
           <tr>
             <th>Image</th>
             <th>Class Name</th>
-            <th>Instructor</th>
-            <th>Email</th>
             <th className="whitespace-break-spaces">Available seats</th>
             <th>Price</th>
             <th>Status</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {classes?.map((singleClass) => (
-           <ManageClassesTd key={singleClass._id} singleClass={singleClass}></ManageClassesTd>
+           <MyClassesTd key={singleClass._id} singleClass={singleClass}></MyClassesTd>
           ))}
           <tr></tr>
         </tbody>
       </table>
     </div>
-  );
+    );
 };
 
-export default ManageClasses;
+export default MyClasses;

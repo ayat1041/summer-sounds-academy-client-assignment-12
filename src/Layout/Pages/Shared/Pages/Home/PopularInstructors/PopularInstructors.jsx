@@ -6,7 +6,6 @@ import SectionContainer from "../../../Shared/SectionContainer/SectionContainer"
 
 const PopularInstructors = () => {
   const [users, isUserLoading] = useUsers(6, "instructor");
-  console.log(users);
   return (
     <SectionContainer>
       <SectionHeader heading={"Popular Instructors"}></SectionHeader>

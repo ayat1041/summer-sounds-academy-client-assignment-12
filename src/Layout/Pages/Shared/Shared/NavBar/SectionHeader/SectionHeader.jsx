@@ -3,7 +3,7 @@ import "./SectionHeader.css";
 import { DarkModeContext } from "../../../../../../Providers/DarkModeProvider";
 const SectionHeader = ({ heading, left, center }) => {
   const { darkModeState } = useContext(DarkModeContext);
-  console.log(darkModeState);
+  // console.log(darkModeState);
   return (
     <div
       className={`w-full shadow-md ${

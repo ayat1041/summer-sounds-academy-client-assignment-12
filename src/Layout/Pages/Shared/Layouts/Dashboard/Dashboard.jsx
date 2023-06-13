@@ -110,7 +110,7 @@ const Dashboard = () => {
                 <>
                   <li className="p-2 py-1 my-1 ml-4 bg-[#0000003a] hover:bg-[#00000099] w-[220px] text-lg font-medium rounded-md">
                     <NavLink
-                      to="mySelectedClasses"
+                      to="addAClass"
                       className="text-white hover:text-white mx-auto"
                     >
                       Add A Class
@@ -118,7 +118,7 @@ const Dashboard = () => {
                   </li>
                   <li className="p-2 py-1 my-1 ml-4 bg-[#0000003a] hover:bg-[#00000099] w-[220px] text-lg font-medium rounded-md">
                     <NavLink
-                      to="myEnrolledClasses"
+                      to="myClasses"
                       className="text-white hover:text-white mx-auto"
                     >
                       My Classes

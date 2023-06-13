@@ -9,7 +9,7 @@ import { AuthContext } from "../../../../../Providers/AuthProvider";
 
 const Login = () => {
   const [passShown,setPassShown] = useState(false);
-  const { signIn } = useContext(AuthContext);
+  const { signIn,googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -29,7 +29,11 @@ const Login = () => {
     console.log(email,password);
   };
   const handleGoogleSignIn = () => {
-    
+    googleSignIn()
+    .then((result) => {
+      navigate("/")
+    })
+    .catch((error)=>console.log(error))
   }
   return (
     <div className="hero min-h-screen bg-base-200">

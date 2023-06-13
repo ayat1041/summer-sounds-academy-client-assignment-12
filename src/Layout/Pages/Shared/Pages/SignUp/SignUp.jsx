@@ -1,8 +1,4 @@
-import {
-  IoIosArrowBack,
-  IoIosArrowDown,
-  IoIosArrowForward,
-} from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
@@ -13,7 +9,8 @@ import axios from "axios";
 
 const SignUp = () => {
   const [passShown, setPassShown] = useState(false);
-  const { signUp, updateUserProfile,googleSignIn } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const { signUp, updateUserProfile, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -22,13 +19,22 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const passwordConfirm = watch("password");
-  
+
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(()=>{
-      navigate("/");
-    })
-    .catch(error=>console.log(error))
+      .then((result) => {
+        console.log(result.user);
+        axios
+          .post("http://localhost:5000/users", {
+            image: result.user.photoURL,
+            name: result.user.displayName,
+            email: result.user.email,
+            role: "student",
+          })
+          .then((response) => console.log(response));
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   const onSubmit = (data) => {
