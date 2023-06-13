@@ -5,7 +5,7 @@ import SectionHeaderDetail from "../../../Shared/NavBar/SectionHeaderDetail/Sect
 import SectionContainer from "../../../Shared/SectionContainer/SectionContainer";
 
 const PopularClasses = () => {
-  const [classes, isLoading] = useClasses(6);
+  const [classes, isLoading] = useClasses(6,true);
   return (
     <SectionContainer>
       <SectionHeader heading={"popular classes"} left={true}></SectionHeader>
@@ -19,7 +19,7 @@ const PopularClasses = () => {
       ) : (
         <div className="lg:mx-10 mx-4 grid gap-4 grid-cols-1 lg:grid-cols-3">
           {classes.map((classItem) => (
-            <ClassCard key={classItem._id} classItem={classItem}></ClassCard>
+            <ClassCard key={classItem._id} classItem={classItem} home={true}></ClassCard>
           ))}
         </div>
       )}
