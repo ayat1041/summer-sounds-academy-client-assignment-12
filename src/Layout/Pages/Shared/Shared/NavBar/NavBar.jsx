@@ -168,14 +168,14 @@ const NavBar = () => {
                 <Link to="/dashboard/mySelectedClasses" className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
                   darkMode ? "bg-green-500" : "bg-green-800"
                 }`}>
-                  Dashboard (Student)
+                  Dashboard
                 </Link>
               )}
               {users[0]?.role === "instructor" && (
                 <Link to="/dashboard/addAClass" className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
                   darkMode ? "bg-green-500" : "bg-green-800"
                 }`}>
-                  Dashboard (Instructor)
+                  Dashboard
                 </Link>
               )}
               {users[0]?.role === "admin" && (
@@ -185,7 +185,7 @@ const NavBar = () => {
                     darkMode ? "bg-green-500" : "bg-green-800"
                   }`}
                 >
-                  Dashboard (Admin)
+                  Dashboard
                 </Link>
               )}
             </>

@@ -1,11 +1,13 @@
 import useClasses from "../../../../../../Hooks/useClasses";
+import useClassesApproved from "../../../../../../Hooks/useClassesApproved";
 import ClassCard from "../../../Shared/ClassCard/ClassCard";
 import SectionHeader from "../../../Shared/NavBar/SectionHeader/SectionHeader";
 import SectionHeaderDetail from "../../../Shared/NavBar/SectionHeaderDetail/SectionHeaderDetail";
 import SectionContainer from "../../../Shared/SectionContainer/SectionContainer";
 
 const PopularClasses = () => {
-  const [classes, isLoading] = useClasses(6,true);
+  // const [classes, isLoading] = useClasses(6,true);
+  const [classes, isLoading] = useClassesApproved(true,6,true);
   return (
     <SectionContainer>
       <SectionHeader heading={"popular classes"} left={true}></SectionHeader>

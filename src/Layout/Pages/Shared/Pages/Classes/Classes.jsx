@@ -14,9 +14,18 @@ const Classes = () => {
         </div>
       ) : (
         <div className="lg:mx-10 mx-4 grid gap-4 grid-cols-1 lg:grid-cols-3 pt-14">
-          {classes.map((classItem) => (
-            <ClassCard key={classItem._id} classItem={classItem} price={true} enroll={true} home={false}></ClassCard>
-          ))}
+          {classes.map(
+            (classItem) =>
+              classItem.status === "approved" && (
+                <ClassCard
+                  key={classItem._id}
+                  classItem={classItem}
+                  price={true}
+                  enroll={true}
+                  home={false}
+                ></ClassCard>
+              )
+          )}
         </div>
       )}
     </SectionContainer>

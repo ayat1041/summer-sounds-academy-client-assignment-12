@@ -51,8 +51,8 @@ const ClassCard = ({ classItem, home }) => {
   
             if (isEnrolled) {
               Swal.fire(
-                'Already Enrolled',
-                'You are already enrolled in this class.',
+                'Already Selected',
+                'You have already selected this class.',
                 'warning'
               );
             } else {
@@ -62,16 +62,16 @@ const ClassCard = ({ classItem, home }) => {
                 status: 'to_be_paid'
               })
               .then((response) => {
-                axios
-                .post("http://localhost:5000/increaseTotalStudents", {
-                  instructor_email: instructor_email,
-                })
-                .then((response) => {
-                  console.log(response.data.message);
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
+                // axios
+                // .post("http://localhost:5000/increaseTotalStudents", {
+                //   instructor_email: instructor_email,
+                // })
+                // .then((response) => {
+                //   console.log(response.data.message);
+                // })
+                // .catch((error) => {
+                //   console.error(error);
+                // });
                 Swal.fire(
                   'Saved!',
                   'Please complete the payment to finish enrollment.',
@@ -102,7 +102,8 @@ const ClassCard = ({ classItem, home }) => {
   };
 
   return (
-    <div className="card bg-base-100 shadow-xl image-full">
+    <div className="card bg-base-100 shadow-xl image-full relative">
+      {available_seats === 0 && (<div className="absolute inset-0 bg-red-500 bg-opacity-60 animate-pulse"></div>)}
       <figure>
         <img src={class_image} alt="Shoes" />
       </figure>

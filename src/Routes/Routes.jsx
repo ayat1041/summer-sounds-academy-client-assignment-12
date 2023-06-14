@@ -14,6 +14,7 @@ import ManageClasses from "../Layout/Pages/Shared/Pages/admin/ManageClasses/Mana
 import ManageUsers from "../Layout/Pages/Shared/Pages/admin/ManageUsers/ManageUsers";
 import AddClass from "../Layout/Pages/Shared/Pages/InstructorDash/AddClass/AddClass";
 import MyClasses from "../Layout/Pages/Shared/Pages/InstructorDash/MyClasses/MyClasses";
+import Payment from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: "myClasses",
         element: <MyClasses></MyClasses>
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>
       }
     ],
   },

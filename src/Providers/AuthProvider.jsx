@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import {
-    GoogleAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   deleteUser,
   getAuth,
@@ -11,26 +11,30 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading,setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
   const googleAuth = new GoogleAuthProvider();
 
   const signUp = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signIn = (email,password) => {
-    return signInWithEmailAndPassword(auth,email,password);
-  }
+  const signIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-  const googleSignIn = () =>{
-    return signInWithPopup(auth,googleAuth);
-  }
+  const googleSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleAuth);
+  };
 
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
@@ -39,22 +43,35 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-
-
-  const logOut = () =>{
+  const logOut = () => {
+    setLoading(true);
     return signOut(auth);
-  }
+  };
 
-  useEffect(()=>{
-    const unsubscribe = onAuthStateChanged(auth, currentUser=>{
-        setUser(currentUser);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            console.log("token generated", data.data.token);
+            localStorage.setItem("access-token", data.data.token);
+            console.log(currentUser?.email);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
-    return ()=>{
-        unsubscribe();
-        setLoading(false);
-    }
-  },[])
-  
+    return () => {
+      unsubscribe();
+      // setLoading(false);
+    };
+  }, []);
+
   const data = {
     user,
     signUp,
@@ -62,7 +79,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleSignIn,
     updateUserProfile,
-    loading
+    loading,
   };
 
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
