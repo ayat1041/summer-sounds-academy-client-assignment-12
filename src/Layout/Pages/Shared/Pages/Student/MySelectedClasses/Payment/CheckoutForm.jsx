@@ -99,12 +99,12 @@ const CheckoutForm = ({
               console.log("instructor students updated");
               // increase total students and decrease available seats
               axios
-                .patch(`http://localhost:5000/classes/${classId}`, {})
+                .patch(`http://localhost:5000/classes/seats/enrolled/${classId}`, {})
                 .then((response) => {
                   console.log("Class updated successfully:", response.data)
                   // change enrollment status
                   axios
-                    .patch(`http://localhost:5000/enrollment/${enrollmentId}`, {})
+                    .patch(`http://localhost:5000/enrollment/payment/${enrollmentId}`, {})
                     .then((response) => {
                       console.log(
                         "Enrollment updated successfully:",

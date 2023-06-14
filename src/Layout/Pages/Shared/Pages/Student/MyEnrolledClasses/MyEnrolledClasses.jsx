@@ -4,16 +4,18 @@ import useUserEmail from "../../../../../../Hooks/useUserEmail";
 import axios from "axios";
 import { AuthContext } from "../../../../../../Providers/AuthProvider";
 import MyEnrolledClassesTd from "./MyEnrolledClassesTd";
+import useAxiosSecure from "../../../../../../Hooks/useAxiosSecure";
 
 const MyEnrolledClasses = () => {
   const [classes, isLoading] = useClasses(0);
   const { user, loading } = useContext(AuthContext);
   const { users, isUserLoading } = useUserEmail(user?.email);
   const [enrollments, setEnrollments] = useState([]);
+  const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/enrollment")
+    axiosSecure
+      .get("/enrollment")
       .then((response) => {
         const filteredEnrollments = response.data.filter(
           (enrollment) => enrollment.student_id === users[0]?._id

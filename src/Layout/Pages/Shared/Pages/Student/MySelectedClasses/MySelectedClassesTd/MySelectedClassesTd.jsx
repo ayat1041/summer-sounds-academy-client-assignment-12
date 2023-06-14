@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 
 const MySelectedClassesTd = ({ courseId, status,student_id,enrollment_id }) => {
     const [classes, isLoading] = useClasses();
-    const [selectedClass, setSelectedClass] = useState(null);
+    const [selectedClass, setSelectedClass] = useState([]);
 
     useEffect(() => {
         const foundClass = classes?.find((singleClass) => singleClass._id === courseId);
         setSelectedClass(foundClass);
+        console.log(selectedClass);
     }, [classes, courseId,selectedClass]);
+
+    if (isLoading) {
+      return <p>Loading...</p>; // Render a loading state while data is being fetched
+    }
     return (
         <tr>
         <td className="text-xs whitespace-break-spaces">

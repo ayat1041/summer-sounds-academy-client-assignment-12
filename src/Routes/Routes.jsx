@@ -15,6 +15,7 @@ import ManageUsers from "../Layout/Pages/Shared/Pages/admin/ManageUsers/ManageUs
 import AddClass from "../Layout/Pages/Shared/Pages/InstructorDash/AddClass/AddClass";
 import MyClasses from "../Layout/Pages/Shared/Pages/InstructorDash/MyClasses/MyClasses";
 import Payment from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/Payment/Payment";
+import UpdateClass from "../Layout/Pages/Shared/Pages/InstructorDash/UpdateClass/UpdateClass";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,11 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment></Payment>
+      },
+      {
+        path: "updateClass/:id",
+        element: <UpdateClass></UpdateClass>,
+        loader: ({params})=> fetch(`http://localhost:5000/classes/${params.id}`)
       }
     ],
   },

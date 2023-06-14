@@ -5,9 +5,54 @@ import SectionContainer from "../../../Shared/SectionContainer/SectionContainer"
 const Analytics = () => {
   return (
     <SectionContainer>
-      <SectionHeader heading={"Analytics"} center={true}></SectionHeader>
-      <SectionHeaderDetail detail={`Here are the most popular instructors with maximum number of our
-          students enrolled.`}></SectionHeaderDetail>
+      <SectionHeader heading={"Why instruments"} center={true}></SectionHeader>
+      {/* <SectionHeaderDetail detail={`Here we have ex`}></SectionHeaderDetail> */}
+      <div className="flex flex-col justify-center text-center">
+        <h2 className="mt-14 text-2xl font-bold bg-green-300 py-10 shadow-md">
+          Benifits of learning instruments
+        </h2>
+        <div className="flex flex-col lg:flex-row  gap-4 my-10 justify-center">
+          <div className="card w-[90vw] lg:w-96 bg-base-100 shadow-xl mx-auto">
+            <div className="card-body">
+              <h2 className="card-title mx-auto mb-4 border-y-4 border-green-500 py-2">Cognitive Benefits</h2>
+              <p>Enhances memory, problem-solving, and brain development.</p>
+            </div>
+            <figure>
+              <img
+              className="w-full h-[100%]"
+                src="https://i0.wp.com/blog.frontiersin.org/wp-content/uploads/2020/10/frontiers-neuroscience-cognitive-benefits-music-training-children.jpg?fit=940%2C627&ssl=1"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
+          <div className="card w-[90vw] lg:w-96 bg-base-100 shadow-xl mx-auto">
+            <div className="card-body">
+              <h2 className="card-title mx-auto mb-4 border-y-4 border-green-500 py-2">Emotional Well-being</h2>
+              <p>Expressive outlet, reduces stress, and boosts confidence.</p>
+            </div>
+            <figure>
+              <img
+              className="w-full h-[100%]"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREex3e_OZKNrsMzrbUupho6TM2pvClKKR0dQ&usqp=CAU"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
+          <div className="card w-[90vw] lg:w-96 bg-base-100 shadow-xl mx-auto">
+            <div className="card-body">
+              <h2 className="card-title mx-auto mb-4 border-y-4 border-green-500 py-2">Social Connection</h2>
+              <p>Collaboration, teamwork, and a supportive community.</p>
+            </div>
+            <figure>
+              <img
+              className="w-full h-[100%]"
+                src="https://i2.wp.com/rakuten.today/wp-content/uploads/2015/10/V3A0450.jpg?fit=2304%2C1536&ssl=1"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
     </SectionContainer>
   );
 };

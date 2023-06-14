@@ -13,6 +13,7 @@ const useClasses = (lim,desc) => {
       .then((res) => {
         setClasses(res.data);
         setIsLoading(false);
+        console.log(classes);
       })
       .catch((error) => {
         console.log(error);
