@@ -16,12 +16,14 @@ import AddClass from "../Layout/Pages/Shared/Pages/InstructorDash/AddClass/AddCl
 import MyClasses from "../Layout/Pages/Shared/Pages/InstructorDash/MyClasses/MyClasses";
 import Payment from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/Payment/Payment";
 import UpdateClass from "../Layout/Pages/Shared/Pages/InstructorDash/UpdateClass/UpdateClass";
+import ErrorPage from "../Layout/Pages/Shared/Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "../Providers/PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <div>Nothing in here</div>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -51,8 +53,8 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
-    errorElement: <div>Nothing in here</div>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "mySelectedClasses",

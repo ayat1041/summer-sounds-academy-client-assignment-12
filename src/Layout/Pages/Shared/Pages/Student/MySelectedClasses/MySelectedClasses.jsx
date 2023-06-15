@@ -25,6 +25,10 @@ const MySelectedClasses = () => {
                 console.error(error);
             });
     }, [users]);
+    
+    // const updateList = (enrollment_id) =>{
+
+    // }
 
     return (
         <div className="mx-10">
@@ -39,6 +43,7 @@ const MySelectedClasses = () => {
             <th>Price</th>
             <th>Status</th>
             <th>Pay</th>
+            <th>Remove</th>
           </tr>
         </thead>
             <tbody>

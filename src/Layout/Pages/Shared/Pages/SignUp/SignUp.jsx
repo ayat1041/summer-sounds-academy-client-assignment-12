@@ -52,6 +52,7 @@ const SignUp = () => {
                 role: "student",
               })
               .then((response) => console.log(response));
+              navigate("/");
           })
           .catch((error) => console.log(error));
       })

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useClasses from "../../../../../../../Hooks/useClasses";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const MySelectedClassesTd = ({ courseId, status,student_id,enrollment_id }) => {
     const [classes, isLoading] = useClasses();
@@ -12,8 +14,30 @@ const MySelectedClassesTd = ({ courseId, status,student_id,enrollment_id }) => {
         console.log(selectedClass);
     }, [classes, courseId,selectedClass]);
 
+    const deleteEnrollment = () => {
+      axios
+        .delete(`http://localhost:5000/enrollment/${enrollment_id}`)
+        .then((response) => {
+          console.log(response.data);
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Deleted',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+        .catch((error) => {
+          console.error("Error deleting enrollment:", error);
+        });
+    };
+
+
     if (isLoading) {
       return <p>Loading...</p>; // Render a loading state while data is being fetched
+    }
+    if(status === 'paid'){
+      return;
     }
     return (
         <tr>
@@ -37,6 +61,9 @@ const MySelectedClassesTd = ({ courseId, status,student_id,enrollment_id }) => {
         </td>
         <td className="text-xs whitespace-break-spaces">
           <Link to={`/dashboard/payment?enrollment_id=${enrollment_id}&course_name=${selectedClass?.class_name}&classId=${courseId}&instructorEmail=${selectedClass?.instructor_email}&price=${selectedClass?.price}&studentId=${student_id}`} className="btn btn-xs btn-success" disabled={status !== "to_be_paid"}>Pay</Link>
+        </td>
+        <td>
+          <button className="btn btn-xs btn-error" onClick={deleteEnrollment}>Remove</button>
         </td>
         </tr>
     );

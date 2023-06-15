@@ -8,9 +8,11 @@ import slide5 from "../../../../../../assets/slider/slider-5.jpg";
 import { useContext } from "react";
 import { DarkModeContext } from "../../../../../../Providers/DarkModeProvider";
 import { Link } from "react-router-dom";
+import useAdmin from "../../../../../../Hooks/useAdmin";
 const Slider = () => {
   const [sliderRef] = useKeenSlider();
   const { darkModeState } = useContext(DarkModeContext);
+  // const [isAdmin, isAdminLoading] = useAdmin();
   return (
     // <div className="lg:bg-gradient-to-b from-green-200 to-transparent my-0 py-0 mb-24">
     <div className={`my-0 py-0 pb-24 relative  ${darkModeState ? "lg:bg-gradient-to-b from-green-200 to-transparent" : "lg:bg-gradient-to-b from-slate-900 to-slate-800"}`}>

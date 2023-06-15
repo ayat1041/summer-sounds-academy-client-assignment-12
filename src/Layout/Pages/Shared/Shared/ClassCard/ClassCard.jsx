@@ -23,78 +23,80 @@ const ClassCard = ({ classItem, home }) => {
   const { users } = useUserEmail(user?.email);
   // console.log(users[0]?.role);
   // console.log(users[0]?._id);
-  const handleEnroll = (class_id, student_id,instructor_email) => {
+  const handleEnroll = (class_id, student_id, instructor_email) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'This course will be added to your selected courses',
-      icon: 'info',
+      title: "Are you sure?",
+      text: "This course will be added to your selected courses",
+      icon: "info",
       showCancelButton: true,
-      confirmButtonColor: 'green',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes'
+      confirmButtonColor: "green",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
         console.log(class_id);
         console.log(student_id);
-  
+
         // Make a GET request to fetch all enrollments
-        axios.get('http://localhost:5000/enrollment')
+        axios
+          .get("http://localhost:5000/enrollment")
           .then((response) => {
             const enrollments = response.data;
-  
+
             const isEnrolled = enrollments.some((enrollment) => {
               return (
                 enrollment.class_id === class_id &&
                 enrollment.student_id === student_id
               );
             });
-  
+
             if (isEnrolled) {
               Swal.fire(
-                'Already Selected',
-                'You have already selected this class.',
-                'warning'
+                "Already Selected",
+                "You have already selected this class.",
+                "warning"
               );
             } else {
-              axios.post('http://localhost:5000/enrollment', {
-                class_id: class_id,
-                student_id: student_id,
-                status: 'to_be_paid'
-              })
-              .then((response) => {
-                // axios
-                // .post("http://localhost:5000/increaseTotalStudents", {
-                //   instructor_email: instructor_email,
-                // })
-                // .then((response) => {
-                //   console.log(response.data.message);
-                // })
-                // .catch((error) => {
-                //   console.error(error);
-                // });
-                Swal.fire(
-                  'Saved!',
-                  'Please complete the payment to finish enrollment.',
-                  'success'
-                );
-                console.log(response);
-              })
-              .catch((error) => {
-                console.error(error);
-                Swal.fire(
-                  'Error',
-                  'An error occurred during enrollment.',
-                  'error'
-                );
-              });
+              axios
+                .post("http://localhost:5000/enrollment", {
+                  class_id: class_id,
+                  student_id: student_id,
+                  status: "to_be_paid",
+                })
+                .then((response) => {
+                  // axios
+                  // .post("http://localhost:5000/increaseTotalStudents", {
+                  //   instructor_email: instructor_email,
+                  // })
+                  // .then((response) => {
+                  //   console.log(response.data.message);
+                  // })
+                  // .catch((error) => {
+                  //   console.error(error);
+                  // });
+                  Swal.fire(
+                    "Saved!",
+                    "Please complete the payment to finish enrollment.",
+                    "success"
+                  );
+                  console.log(response);
+                })
+                .catch((error) => {
+                  console.error(error);
+                  Swal.fire(
+                    "Error",
+                    "An error occurred during enrollment.",
+                    "error"
+                  );
+                });
             }
           })
           .catch((error) => {
             console.error(error);
             Swal.fire(
-              'Error',
-              'An error occurred while fetching enrollments.',
-              'error'
+              "Error",
+              "An error occurred while fetching enrollments.",
+              "error"
             );
           });
       }
@@ -103,7 +105,9 @@ const ClassCard = ({ classItem, home }) => {
 
   return (
     <div className="card bg-base-100 shadow-xl image-full relative">
-      {available_seats === 0 && (<div className="absolute inset-0 bg-red-500 bg-opacity-60 animate-pulse"></div>)}
+      {available_seats === 0 && (
+        <div className="absolute inset-0 bg-red-500 rounded-2xl bg-opacity-80 animate-pulse"></div>
+      )}
       <figure>
         <img src={class_image} alt="Shoes" />
       </figure>
@@ -144,17 +148,21 @@ const ClassCard = ({ classItem, home }) => {
           </div>
         </div>
         <div className="card-actions justify-between items-center mt-2">
-          <button>
+          <button className="flex items-center justify-center gap-2">
             <h1 className="font-medium text-green-200 text-md tracking-wide">
               Seats available{" "}
-              <span className="text-2xl text-green-500 font-bold">
-                {available_seats}
-              </span>
             </h1>
+            <span
+              className={`text-2xl font-bold ${
+                available_seats ? "text-green-500" : "text-red-600"
+              }`}
+            >
+              {available_seats}
+            </span>
           </button>
-          {!home ? (
+          {/* {!home ? (
             <button
-              disabled={users[0]?.role !== "student"}
+              disabled={users[0]?.role !== "student" || available_seats === 0}
               onClick={() => handleEnroll(_id,users[0]?._id,instructor_email)}
               className={`btn border-none disabled:bg-green-200 btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${
                 darkModeState ? "bg-green-500" : "bg-green-800"
@@ -162,6 +170,39 @@ const ClassCard = ({ classItem, home }) => {
             >
               select
             </button>
+          ) : (
+            <Link
+              to="/classes"
+              className={`btn border-none disabled:bg-green-200 btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${
+                darkModeState ? "bg-green-500" : "bg-green-800"
+              }`}
+            >
+              view all
+            </Link>
+          )} */}
+          {!home ? (
+            user ? (
+              <button
+                disabled={users[0]?.role !== "student" || available_seats === 0}
+                onClick={() =>
+                  handleEnroll(_id, users[0]?._id, instructor_email)
+                }
+                className={`btn border-none disabled:bg-green-200 btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${
+                  darkModeState ? "bg-green-500" : "bg-green-800"
+                }`}
+              >
+                select
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className={`btn border-none disabled:bg-green-200 btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${
+                  darkModeState ? "bg-green-500" : "bg-green-800"
+                }`}
+              >
+                select
+              </Link>
+            )
           ) : (
             <Link
               to="/classes"

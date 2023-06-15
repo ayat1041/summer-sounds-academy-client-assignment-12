@@ -3,7 +3,7 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BsFillEyeFill, BsFillEyeSlashFill,BsGoogle } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
 
@@ -11,6 +11,9 @@ const Login = () => {
   const [passShown,setPassShown] = useState(false);
   const { signIn,googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -22,7 +25,7 @@ const Login = () => {
     signIn(email,password)
     .then(res=>{
       console.log(res.user)
-      navigate("/")
+      navigate(from, {replace: true});
     })
     .catch(error=>console.log(error))
 
@@ -31,7 +34,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
     .then((result) => {
-      navigate("/")
+      navigate(from, {replace: true});
     })
     .catch((error)=>console.log(error))
   }
