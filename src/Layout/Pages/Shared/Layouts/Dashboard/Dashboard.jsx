@@ -1,6 +1,10 @@
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { BiLogOut } from "react-icons/bi";
+import { BiLogOut,BiSelectMultiple } from "react-icons/bi";
 import { FaSchool } from "react-icons/fa";
+import { GrAddCircle } from "react-icons/gr";
+import { BsFillBagCheckFill } from "react-icons/bs";
+import { GiCash } from "react-icons/gi";
+import { MdLibraryBooks,MdManageSearch,MdManageAccounts } from "react-icons/md";
 import "./Dashboard.css";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../../../Providers/AuthProvider";
@@ -64,24 +68,27 @@ const Dashboard = () => {
                     <li className="p-2 py-1 my-1 ml-4 bg-[#0000003a] hover:bg-[#00000099] w-[220px] text-lg font-medium rounded-md">
                       <NavLink
                         to="mySelectedClasses"
-                        className="text-white hover:text-white mx-auto"
+                        className="text-white hover:text-white mx-auto text-sm"
                       >
+                        <BiSelectMultiple className="text-2xl text-black"/>
                         My Selected Classes
                       </NavLink>
                     </li>
                     <li className="p-2 py-1 my-1 ml-4 bg-[#0000003a] hover:bg-[#00000099] w-[220px] text-lg font-medium rounded-md">
                       <NavLink
                         to="myEnrolledClasses"
-                        className="text-white hover:text-white mx-auto"
+                        className="text-white hover:text-white mx-auto text-sm"
                       >
+                        <BsFillBagCheckFill className="text-2xl text-black"/>
                         My Enrolled Classes
                       </NavLink>
                     </li>
                     <li className="p-2 py-1 my-1 ml-4 bg-[#0000003a] hover:bg-[#00000099] w-[220px] text-lg font-medium rounded-md">
                       <NavLink
                         to="paymentHistory"
-                        className="text-white hover:text-white mx-auto"
+                        className="text-white hover:text-white mx-auto text-sm"
                       >
+                        <GiCash className="text-2xl text-black"/>
                         Payment History
                       </NavLink>
                     </li>
@@ -94,6 +101,7 @@ const Dashboard = () => {
                         to="manageClasses"
                         className="text-white hover:text-white mx-auto"
                       >
+                        <MdManageSearch className="text-3xl text-black"/>
                         Manage Classes
                       </NavLink>
                     </li>
@@ -102,6 +110,7 @@ const Dashboard = () => {
                         to="manageUsers"
                         className="text-white hover:text-white mx-auto"
                       >
+                        <MdManageAccounts className="text-3xl text-black"/>
                         Manage Users
                       </NavLink>
                     </li>
@@ -114,6 +123,7 @@ const Dashboard = () => {
                         to="addAClass"
                         className="text-white hover:text-white mx-auto"
                       >
+                        <GrAddCircle className="text-3xl" />
                         Add A Class
                       </NavLink>
                     </li>
@@ -122,6 +132,7 @@ const Dashboard = () => {
                         to="myClasses"
                         className="text-white hover:text-white mx-auto"
                       >
+                        <MdLibraryBooks className="text-3xl text-black"/>
                         My Classes
                       </NavLink>
                     </li>

@@ -196,6 +196,7 @@ const ClassCard = ({ classItem, home }) => {
             ) : (
               <Link
                 to="/login"
+                disabled={available_seats === 0}
                 className={`btn border-none disabled:bg-green-200 btn-sm hover:bg-green-950 font-bold text-white tracking-wide ${
                   darkModeState ? "bg-green-500" : "bg-green-800"
                 }`}

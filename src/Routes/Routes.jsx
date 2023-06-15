@@ -18,6 +18,9 @@ import Payment from "../Layout/Pages/Shared/Pages/Student/MySelectedClasses/Paym
 import UpdateClass from "../Layout/Pages/Shared/Pages/InstructorDash/UpdateClass/UpdateClass";
 import ErrorPage from "../Layout/Pages/Shared/Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "../Providers/PrivateRoute";
+import AdminRoute from "../Providers/AdminRoute";
+import InstructorRoute from "../Providers/InstructorRoute";
+import StudentRoute from "../Providers/StudentRoute";
 
 const router = createBrowserRouter([
   {
@@ -58,36 +61,37 @@ const router = createBrowserRouter([
     children: [
       {
         path: "mySelectedClasses",
-        element: <MySelectedClasses></MySelectedClasses>,
+        element: <StudentRoute><MySelectedClasses></MySelectedClasses></StudentRoute>,
       },
       {
         path: "myEnrolledClasses",
-        element: <MyEnrolledClasses></MyEnrolledClasses>,
+        element: <StudentRoute><MyEnrolledClasses></MyEnrolledClasses></StudentRoute>,
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory></PaymentHistory>,
-      },
-      // admin route
-      {
-        path: "manageClasses",
-        element: <ManageClasses></ManageClasses>,
-      },
-      {
-        path: "manageUsers",
-        element: <ManageUsers></ManageUsers>
-      },
-      {
-        path: "addAClass",
-        element: <AddClass></AddClass>
-      },
-      {
-        path: "myClasses",
-        element: <MyClasses></MyClasses>
+        element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>,
       },
       {
         path: "payment",
         element: <Payment></Payment>
+      },
+      // admin route
+      {
+        path: "manageClasses",
+        element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
+      },
+      {
+        path: "manageUsers",
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
+      // instructor
+      {
+        path: "addAClass",
+        element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+      },
+      {
+        path: "myClasses",
+        element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
       },
       {
         path: "updateClass/:id",

@@ -23,11 +23,6 @@ const Instructor = () => {
           <h1 className="p-4 bg-green-400 my-4 shadow-md font-medium tracking-wider">{email}</h1>
           <SiGoogleclassroom className="mx-auto text-5xl"/>
           <h1 className="text-6xl font-bold my-4 mt-1 text-green-900">{no_of_classes}</h1>
-          <div>
-            {name_of_classes.map((name_of_class) => (
-              <h1>{name_of_class}</h1>
-            ))}
-          </div>
           </div>
         </>
       )}

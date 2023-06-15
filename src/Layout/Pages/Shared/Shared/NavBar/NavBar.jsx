@@ -6,6 +6,7 @@ import { GiDandelionFlower } from "react-icons/gi";
 import { DarkModeContext } from "../../../../../Providers/DarkModeProvider";
 import useUserEmail from "../../../../../Hooks/useUserEmail";
 
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const { users, isUserLoading } = useUserEmail(user?.email);
