@@ -10,7 +10,7 @@ const useClassesApproved = (approved,lim,desc) => {
     const approval = approved || false;
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/classes?sort=${sort}&lim=${limit}&approval=${approval}`)
+      .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes?sort=${sort}&lim=${limit}&approval=${approval}`)
       .then((res) => {
         setClasses(res.data);
         setIsLoading(false);

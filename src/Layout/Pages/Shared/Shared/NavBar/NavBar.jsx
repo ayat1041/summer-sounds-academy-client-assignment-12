@@ -68,7 +68,7 @@ const NavBar = () => {
       {/* <div className={`bg-green-200 py-1 pt-2 flex justify-between lg:px-8`}> */}
       <div
         className={`py-1 pt-2 flex justify-between transition-all duration-200 ease-in lg:px-8 ${
-          darkMode ? "bg-green-200" : "bg-green-900"
+          darkModeState ? "bg-green-200" : "bg-green-900"
         }`}
       >
         {/* <img src="logo.png" className="h-10 lg:h-14 mx-auto lg:mx-0 shadow-md" alt="" /> */}
@@ -81,7 +81,7 @@ const NavBar = () => {
           <div className="mt-2 lg:mt-0">
             <h1
               className={`text-lg lg:text-4xl text-blue-200 tracking-tight leading-none font-medium -mb-1 ${
-                darkMode ? "text-green-900" : "text-green-200"
+                darkModeState ? "text-green-900" : "text-green-200"
               }`}
               style={{ fontFamily: "'PT Sans Narrow', sans-serif" }}
             >
@@ -89,7 +89,7 @@ const NavBar = () => {
             </h1>
             <h1
               className={`m-0 mt-2 lg:mt-1 text-[7px] lg:text-sm tracking-tighter lg:tracking-tight ${
-                darkMode ? "text-green-900" : "text-yellow-600"
+                darkModeState ? "text-green-900" : "text-yellow-600"
               }`}
             >
               learn to play instruments | Enjoy a creative vacation
@@ -126,7 +126,7 @@ const NavBar = () => {
           )}
           <button
             className={`btn text-white border-none hidden lg:block hover:bg-slate-600 ${
-              darkMode ? "bg-green-500" : "bg-green-700"
+              darkModeState ? "bg-green-500" : "bg-green-700"
             }`}
           >
             Take a Tour
@@ -135,7 +135,7 @@ const NavBar = () => {
       </div>
       <div
         className={`navbar sticky top-0 w-full h-10 shadow-md z-10 transition-all duration-300 ease-in ${
-          darkMode ? "bg-green-400" : "bg-green-700"
+          darkModeState ? "bg-green-400" : "bg-green-700"
         }`}
       >
         <div className="navbar-start">
@@ -167,14 +167,14 @@ const NavBar = () => {
             <>
               {users[0]?.role === "student" && (
                 <Link to="/dashboard/mySelectedClasses" className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
-                  darkMode ? "bg-green-500" : "bg-green-800"
+                  darkModeState ? "bg-green-500" : "bg-green-800"
                 }`}>
                   Dashboard
                 </Link>
               )}
               {users[0]?.role === "instructor" && (
                 <Link to="/dashboard/addAClass" className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
-                  darkMode ? "bg-green-500" : "bg-green-800"
+                  darkModeState ? "bg-green-500" : "bg-green-800"
                 }`}>
                   Dashboard
                 </Link>
@@ -183,7 +183,7 @@ const NavBar = () => {
                 <Link
                   to="/dashboard/manageClasses"
                   className={`btn border-none text-slate-100 tracking-wide hover:bg-slate-700 normal-case text-xl ${
-                    darkMode ? "bg-green-500" : "bg-green-800"
+                    darkModeState ? "bg-green-500" : "bg-green-800"
                   }`}
                 >
                   Dashboard

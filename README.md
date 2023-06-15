@@ -19,11 +19,14 @@
 - daisyui
 - firebase
 - nodejs
+- MongoDB
 - express
 - json web token
 - cors
 - dotenv
+- framer motion
 
 
 ## Live site link
 
+https://summer-sounds-academy.web.app

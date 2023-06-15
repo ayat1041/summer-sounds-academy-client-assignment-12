@@ -9,7 +9,7 @@ const useClasses = (lim,desc) => {
     const sort = desc || false;
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/classes?sort=${sort}&lim=${limit}`)
+      .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes?sort=${sort}&lim=${limit}`)
       .then((res) => {
         setClasses(res.data);
         setIsLoading(false);

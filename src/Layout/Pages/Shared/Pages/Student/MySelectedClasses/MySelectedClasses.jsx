@@ -13,7 +13,7 @@ const MySelectedClasses = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/enrollment")
+            .get("https://summer-sounds-academy-server-ayat1041.vercel.app/enrollment")
             .then((response) => {
                 const filteredEnrollments = response.data.filter(
                     (enrollment) => enrollment.student_id === users[0]?._id

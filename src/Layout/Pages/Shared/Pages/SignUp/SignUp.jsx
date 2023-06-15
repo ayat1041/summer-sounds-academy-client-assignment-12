@@ -25,7 +25,7 @@ const SignUp = () => {
       .then((result) => {
         console.log(result.user);
         axios
-          .post("http://localhost:5000/users", {
+          .post("https://summer-sounds-academy-server-ayat1041.vercel.app/users", {
             image: result.user.photoURL,
             name: result.user.displayName,
             email: result.user.email,
@@ -45,7 +45,7 @@ const SignUp = () => {
           .then(() => {
             console.log("user updated", res.user);
             axios
-              .post("http://localhost:5000/users", {
+              .post("https://summer-sounds-academy-server-ayat1041.vercel.app/users", {
                 image: photo,
                 name: name,
                 email: email,

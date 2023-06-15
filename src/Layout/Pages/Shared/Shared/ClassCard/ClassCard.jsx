@@ -39,7 +39,7 @@ const ClassCard = ({ classItem, home }) => {
 
         // Make a GET request to fetch all enrollments
         axios
-          .get("http://localhost:5000/enrollment")
+          .get("https://summer-sounds-academy-server-ayat1041.vercel.app/enrollment")
           .then((response) => {
             const enrollments = response.data;
 
@@ -58,14 +58,14 @@ const ClassCard = ({ classItem, home }) => {
               );
             } else {
               axios
-                .post("http://localhost:5000/enrollment", {
+                .post("https://summer-sounds-academy-server-ayat1041.vercel.app/enrollment", {
                   class_id: class_id,
                   student_id: student_id,
                   status: "to_be_paid",
                 })
                 .then((response) => {
                   // axios
-                  // .post("http://localhost:5000/increaseTotalStudents", {
+                  // .post("https://summer-sounds-academy-server-ayat1041.vercel.app/increaseTotalStudents", {
                   //   instructor_email: instructor_email,
                   // })
                   // .then((response) => {

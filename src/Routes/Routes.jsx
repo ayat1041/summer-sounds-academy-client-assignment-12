@@ -96,7 +96,7 @@ const router = createBrowserRouter([
       {
         path: "updateClass/:id",
         element: <UpdateClass></UpdateClass>,
-        loader: ({params})=> fetch(`http://localhost:5000/classes/${params.id}`)
+        loader: ({params})=> fetch(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/${params.id}`)
       }
     ],
   },

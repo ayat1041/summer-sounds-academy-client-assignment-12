@@ -9,7 +9,7 @@ const PaymentHistory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/payments?email=${user?.email}`)
+      .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/payments?email=${user?.email}`)
       .then((response) => {
         setPayments(response.data);
       })

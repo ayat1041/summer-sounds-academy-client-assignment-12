@@ -15,7 +15,7 @@ const useUsers = (lim, userRole, userEmail) => {
     queryKey: ["users", limit, role, email],
     queryFn: async () => {
       const response = await axios.get(
-        `http://localhost:5000/users?popular=desc&lim=${limit}&role=${role}&email=${email}`
+        `https://summer-sounds-academy-server-ayat1041.vercel.app/users?popular=desc&lim=${limit}&role=${role}&email=${email}`
       );
       return response.data;
     },
@@ -47,7 +47,7 @@ export default useUsers;
 
 //   useEffect(() => {
 //     axios
-//       .get(`http://localhost:5000/users?popular=desc&lim=${limit}&role=${role}&email=${email}`)
+//       .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/users?popular=desc&lim=${limit}&role=${role}&email=${email}`)
 //       .then((res) => {
 //         setUsers(res.data);
 //         setLoading(false);

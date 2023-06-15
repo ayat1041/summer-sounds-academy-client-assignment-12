@@ -7,7 +7,7 @@ const useUser = (id) => {
   const [isUserLoading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/${id}`)
+      .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/users/${id}`)
       .then((res) => {
         setUser(res.data);
         console.log(res.data);

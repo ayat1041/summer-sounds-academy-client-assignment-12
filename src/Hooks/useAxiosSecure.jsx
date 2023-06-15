@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000", // Replace with your base URL
+    baseURL: "https://summer-sounds-academy-server-ayat1041.vercel.app", // Replace with your base URL
   });
 
   // useEffect(() => {

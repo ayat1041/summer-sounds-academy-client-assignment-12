@@ -30,7 +30,7 @@ const AddClass = () => {
     };
 
     axios
-      .post("http://localhost:5000/classes", newClass)
+      .post("https://summer-sounds-academy-server-ayat1041.vercel.app/classes", newClass)
       .then((response) => {
         console.log("Class created successfully:", response.data);
         Swal.fire({

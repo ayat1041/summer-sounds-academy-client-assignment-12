@@ -16,7 +16,7 @@ const MySelectedClassesTd = ({ courseId, status,student_id,enrollment_id }) => {
 
     const deleteEnrollment = () => {
       axios
-        .delete(`http://localhost:5000/enrollment/${enrollment_id}`)
+        .delete(`https://summer-sounds-academy-server-ayat1041.vercel.app/enrollment/${enrollment_id}`)
         .then((response) => {
           console.log(response.data);
           Swal.fire({

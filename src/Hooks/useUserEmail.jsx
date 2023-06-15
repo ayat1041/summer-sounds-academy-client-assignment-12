@@ -9,7 +9,7 @@ const useUserEmail = (userEmail) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users?email=${email}`);
+        const response = await axios.get(`https://summer-sounds-academy-server-ayat1041.vercel.app/users?email=${email}`);
         setUsers(response.data);
         setLoading(false);
       } catch (error) {

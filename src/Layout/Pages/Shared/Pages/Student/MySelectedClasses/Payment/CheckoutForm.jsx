@@ -91,7 +91,7 @@ const CheckoutForm = ({
         if (res.data.insertedId) {
           // increase total students
           axios
-            .post("http://localhost:5000/increaseTotalStudents", {
+            .post("https://summer-sounds-academy-server-ayat1041.vercel.app/increaseTotalStudents", {
               instructor_email: instructorEmail,
             })
             .then((response) => {
@@ -99,12 +99,12 @@ const CheckoutForm = ({
               console.log("instructor students updated");
               // increase total students and decrease available seats
               axios
-                .patch(`http://localhost:5000/classes/seats/enrolled/${classId}`, {})
+                .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/seats/enrolled/${classId}`, {})
                 .then((response) => {
                   console.log("Class updated successfully:", response.data)
                   // change enrollment status
                   axios
-                    .patch(`http://localhost:5000/enrollment/payment/${enrollmentId}`, {})
+                    .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/enrollment/payment/${enrollmentId}`, {})
                     .then((response) => {
                       console.log(
                         "Enrollment updated successfully:",

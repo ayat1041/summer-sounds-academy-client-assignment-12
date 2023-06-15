@@ -16,7 +16,7 @@ const ManageUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:5000/users/promote/${id}`, { role: "admin" })
+          .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/users/promote/${id}`, { role: "admin" })
           .then((res) => {
             Swal.fire("Promoted!", "User promoted to Admin.", "success");
             refetch();
@@ -36,7 +36,7 @@ const ManageUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:5000/users/promote/${id}`, {
+          .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/users/promote/${id}`, {
             role: "instructor",
           })
           .then((res) => {
@@ -58,7 +58,7 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/users/${id}`).then((res) => {
+        axios.delete(`https://summer-sounds-academy-server-ayat1041.vercel.app/users/${id}`).then((res) => {
           if (res.data.acknowledged) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
             refetch();

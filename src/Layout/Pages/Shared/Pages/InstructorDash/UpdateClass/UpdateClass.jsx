@@ -28,7 +28,7 @@ const UpdateClass = () => {
         };
     
         axios
-          .patch(`http://localhost:5000/classes/updateClass/${classData._id}`, updatedClass)
+          .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/updateClass/${classData._id}`, updatedClass)
           .then((response) => {
             console.log("Class updated successfully:", response.data);
             Swal.fire({

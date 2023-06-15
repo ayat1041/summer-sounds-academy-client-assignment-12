@@ -7,7 +7,7 @@ const useClassById = (classId) => {
 
   useEffect(() => {
         axios
-          .get(`http://localhost:5000/classes/${classId}`)
+          .get(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/${classId}`)
           .then((res) => {
             setClassData(res.data);
             setIsLoading(false);

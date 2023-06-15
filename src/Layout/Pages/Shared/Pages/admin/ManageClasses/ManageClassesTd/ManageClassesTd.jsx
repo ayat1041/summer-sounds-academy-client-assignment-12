@@ -14,7 +14,7 @@ const ManageClassesTd = ({ singleClass, setCurrentClassId }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:5000/classes/approval/approved/${id}`)
+          .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/approval/approved/${id}`)
           .then((response) => {
             Swal.fire("Approved", "Class Approved.", "success");
           })
@@ -44,7 +44,7 @@ const ManageClassesTd = ({ singleClass, setCurrentClassId }) => {
       if (result.isConfirmed) {
         const feedback = result.value;
         axios
-          .patch(`http://localhost:5000/classes/approval/denied/${id}`, {
+          .patch(`https://summer-sounds-academy-server-ayat1041.vercel.app/classes/approval/denied/${id}`, {
             status: "denied",
             feedback: feedback,
           })
